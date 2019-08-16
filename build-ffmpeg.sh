@@ -25,8 +25,7 @@ pushd ffmpeg-$RELEASE
 	--enable-libvorbis --enable-libvpx $FAACOPTIONS --enable-static \
     --enable-version3 --extra-libs="-ldl -static" --extra-cflags="--static" \
 	 --enable-ffplay --enable-libxvid --enable-hardcoded-tables \
-#    --enable-libfreetype --enable-ffplay --enable-libxvid --enable-hardcoded-tables \
-    --disable-ffserver --disable-network --disable-shared
+     --enable-shared
     
 #./configure --enable-pthreads --enable-gpl --enable-version3 --enable-hardcoded-tables \
 # --enable-libx264 --enable-libmp3lame --enable-libxvid --enable-libtheora \
