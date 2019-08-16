@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-RELEASE="3.4.2"
+RELEASE="4.1.4"
 
 if [ "$LIBFAAC" = "true" ]; then
     FAACOPTIONS="--enable-nonfree --enable-libx264"
@@ -27,7 +27,9 @@ pushd ffmpeg-$RELEASE
 #    --enable-libfreetype --enable-ffplay --enable-libxvid --enable-hardcoded-tables \
 #    --disable-ffserver --disable-network --disable-shared
     
-./configure --enable-pthreads --enable-gpl --enable-version3 --enable-hardcoded-tables --enable-libx264 --enable-libmp3lame --enable-libxvid --enable-libtheora --enable-libvorbis --enable-libvpx --enable-nonfree --enable-libfdk-aac
+./configure --enable-pthreads --enable-gpl --enable-version3 --enable-hardcoded-tables \
+ --enable-libx264 --enable-libmp3lame --enable-libxvid --enable-libtheora \
+ --enable-libvorbis --enable-libvpx --enable-nonfree --enable-libfdk-aac
     
 make
 echo "ffmpeg - Nuxeo version" > description-pak
