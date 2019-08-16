@@ -29,7 +29,8 @@ pushd ffmpeg-$RELEASE
     
 ./configure --enable-pthreads --enable-gpl --enable-version3 --enable-hardcoded-tables \
  --enable-libx264 --enable-libmp3lame --enable-libxvid --enable-libtheora \
- --enable-libvorbis --enable-libvpx --enable-nonfree --enable-libfdk-aac
+ --enable-libvorbis --enable-libvpx $FAACOPTIONS --enable-nonfree --enable-static \
+--enable-libfdk-aac --disable-ffserver --enable-ffplay --disable-network \ --disable-shared
     
 make
 echo "ffmpeg - Nuxeo version" > description-pak
