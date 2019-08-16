@@ -2,11 +2,11 @@
 
 RELEASE="3.4.2"
 
-if [ "$LIBFAAC" = "true" ]; then
-    FAACOPTIONS="--enable-nonfree --enable-libx264"
-else
-    FAACOPTIONS="--disable-libx264"
-fi
+#if [ "$LIBFAAC" = "true" ]; then
+#    FAACOPTIONS="--enable-nonfree --enable-libx264"
+#else
+#    FAACOPTIONS="--disable-libx264"
+#fi
 
 if [ -d "ffmpeg-$RELEASE" ]; then
     pushd ffmpeg-$RELEASE
@@ -20,12 +20,11 @@ else
 fi
 
 pushd ffmpeg-$RELEASE
-./configure --enable-pthreads --enable-pic --enable-gpl --enable-libmp3lame \
-	--enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libtheora \
-	--enable-libvorbis --enable-libvpx $FAACOPTIONS --enable-static \
+./configure --enable-gpl --enable-libmp3lame --enable-libopencore-amrnb \
+    --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis \
+    --enable-libx264 --enable-libvpx --enable-static --disable-shared \
     --enable-version3 --extra-libs="-ldl -static" --extra-cflags="--static" \
-	 --enable-ffplay --enable-libxvid --enable-hardcoded-tables \
-     --enable-static
+    --disable-ffplay --disable-ffserver --disable-network
     
 #./configure --enable-pthreads --enable-gpl --enable-version3 --enable-hardcoded-tables \
 # --enable-libx264 --enable-libmp3lame --enable-libxvid --enable-libtheora \

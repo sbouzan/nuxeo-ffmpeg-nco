@@ -12,7 +12,8 @@ if [ -d "x264" ]; then
     fi
     popd
 else
-    git clone https://git.videolan.org/git/x264.git
+    #git clone https://git.videolan.org/git/x264.git
+    git clone https://code.videolan.org/videolan/x264.git
 fi
 
 pushd x264
