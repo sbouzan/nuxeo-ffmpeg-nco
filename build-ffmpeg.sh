@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-RELEASE="4.1.4"
+RELEASE="3.4.2"
 
 if [ "$LIBFAAC" = "true" ]; then
     FAACOPTIONS="--enable-nonfree --enable-libx264"
@@ -20,17 +20,18 @@ else
 fi
 
 pushd ffmpeg-$RELEASE
-#./configure --enable-gpl --enable-libmp3lame --enable-libopencore-amrnb \
-#    --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis \
-#    --enable-libvpx $FAACOPTIONS --enable-static \
-#    --enable-version3 --extra-libs="-ldl -static" --extra-cflags="--static" \
+./configure --enable-pthreads --enable-gpl --enable-libmp3lame \
+	--enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libtheora \
+	--enable-libvorbis --enable-libvpx $FAACOPTIONS --enable-static \
+    --enable-version3 --extra-libs="-ldl -static" --extra-cflags="--static" \
+	 --enable-ffplay --enable-libxvid --enable-hardcoded-tables \
 #    --enable-libfreetype --enable-ffplay --enable-libxvid --enable-hardcoded-tables \
-#    --disable-ffserver --disable-network --disable-shared
+    --disable-ffserver --disable-network --disable-shared
     
-./configure --enable-pthreads --enable-gpl --enable-version3 --enable-hardcoded-tables \
- --enable-libx264 --enable-libmp3lame --enable-libxvid --enable-libtheora \
- --enable-libvorbis --enable-libvpx $FAACOPTIONS --enable-nonfree --enable-static \
---enable-libfdk-aac --disable-ffserver --enable-ffplay --disable-network \ --disable-shared
+#./configure --enable-pthreads --enable-gpl --enable-version3 --enable-hardcoded-tables \
+# --enable-libx264 --enable-libmp3lame --enable-libxvid --enable-libtheora \
+# --enable-libvorbis --enable-libvpx $FAACOPTIONS --enable-nonfree --enable-static \
+#--enable-libfdk-aac --disable-ffserver --enable-ffplay --disable-network \ #--disable-shared
     
 make
 echo "ffmpeg - Nuxeo version" > description-pak
