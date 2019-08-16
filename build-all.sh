@@ -19,4 +19,3 @@ fi
 ./build-x264.sh
 ./build-libvpx.sh
 ./build-ffmpeg.sh
-

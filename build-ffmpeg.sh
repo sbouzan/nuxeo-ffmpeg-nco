@@ -22,7 +22,7 @@ fi
 pushd ffmpeg-$RELEASE
 ./configure --enable-gpl --enable-libmp3lame --enable-libopencore-amrnb \
     --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis \
-    $FAACOPTIONS --enable-libvpx --enable-static --disable-shared --disable-dynamic \
+    $FAACOPTIONS --enable-libvpx --enable-static --disable-shared \
     --enable-version3 --extra-libs="-ldl -static" --extra-cflags="--static" \
     --disable-ffplay --disable-ffserver --disable-network
     
