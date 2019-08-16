@@ -2,11 +2,11 @@
 
 RELEASE="3.4.2"
 
-#if [ "$LIBFAAC" = "true" ]; then
-#    FAACOPTIONS="--enable-nonfree --enable-libx264"
-#else
-#    FAACOPTIONS="--disable-libx264"
-#fi
+if [ "$LIBFAAC" = "true" ]; then
+    FAACOPTIONS="--enable-nonfree --enable-libx264"
+else
+    FAACOPTIONS="--disable-libx264"
+fi
 
 if [ -d "ffmpeg-$RELEASE" ]; then
     pushd ffmpeg-$RELEASE
@@ -22,7 +22,7 @@ fi
 pushd ffmpeg-$RELEASE
 ./configure --enable-gpl --enable-libmp3lame --enable-libopencore-amrnb \
     --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis \
-    --enable-libx264 --enable-libvpx --enable-static --disable-shared \
+    $FAACOPTIONS --enable-libvpx --enable-static --disable-shared --disable-dynamic \
     --enable-version3 --extra-libs="-ldl -static" --extra-cflags="--static" \
     --disable-ffplay --disable-ffserver --disable-network
     
