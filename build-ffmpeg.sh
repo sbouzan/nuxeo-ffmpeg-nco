@@ -20,12 +20,12 @@ else
 fi
 
 pushd ffmpeg-$RELEASE
-./configure --enable-pthreads --enable-gpl --enable-libmp3lame \
+./configure --enable-pthreads --enable-pic --enable-gpl --enable-libmp3lame \
 	--enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libtheora \
 	--enable-libvorbis --enable-libvpx $FAACOPTIONS --enable-static \
     --enable-version3 --extra-libs="-ldl -static" --extra-cflags="--static" \
 	 --enable-ffplay --enable-libxvid --enable-hardcoded-tables \
-     --enable-shared
+     --enable-static
     
 #./configure --enable-pthreads --enable-gpl --enable-version3 --enable-hardcoded-tables \
 # --enable-libx264 --enable-libmp3lame --enable-libxvid --enable-libtheora \
