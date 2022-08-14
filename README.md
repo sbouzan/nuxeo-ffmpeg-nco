@@ -1,3 +1,5 @@
+This repo is no longer maintained.
+
 # FFmpeg build with x264 and vpx support
 
 This set of scripts will compile and install FFmpeg packages with x264 and vpx support.
